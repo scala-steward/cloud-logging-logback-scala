@@ -1,4 +1,5 @@
 import _root_.io.github.nafg.mergify.dsl.*
+import org.typelevel.scalacoptions.ScalacOptions
 
 ThisBuild / crossScalaVersions := Seq("2.13.18", "3.3.8")
 ThisBuild / scalaVersion       := (ThisBuild / crossScalaVersions).value.last
@@ -11,7 +12,7 @@ mergifyExtraConditions := Seq(
 )
 
 val adjustScalacOptions = Seq(
-  scalacOptions -= "-Xfatal-warnings",
+  tpolecatExcludeOptions ++= ScalacOptions.fatalWarningOptions,
   scalacOptions ++=
     (if (scalaVersion.value.startsWith("3."))
        Nil
