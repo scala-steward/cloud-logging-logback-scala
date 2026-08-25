@@ -13,7 +13,7 @@ inThisBuild(
         })
       },
     dynverSonatypeSnapshots             := true,
-    githubWorkflowJavaVersions          := Seq(JavaSpec.zulu("11")),
+    githubWorkflowJavaVersions          := Seq(JavaSpec.zulu("17")),
     githubWorkflowScalaVersions         := githubWorkflowScalaVersions.value.map(_.replaceFirst("\\d+$", "x")),
     githubWorkflowTargetTags ++= Seq("v*"),
     githubWorkflowPublishTargetBranches := Seq(RefPredicate.StartsWith(Ref.Tag("v"))),
